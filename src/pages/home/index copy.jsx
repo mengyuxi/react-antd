@@ -1,7 +1,7 @@
 import React, { useState, Suspense, useEffect } from 'react';
 import { UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
-import { Routes, Route, useNavigate, Outlet, NavLink } from "react-router-dom";
+import { useNavigate, Outlet, NavLink } from "react-router-dom";
 import routerConfig from 'routerConfig';
 
 import About from '../goods';

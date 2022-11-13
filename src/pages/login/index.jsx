@@ -1,6 +1,6 @@
 import React, { useState }  from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import routerConfig from 'routerConfig';
 
 import './index.less';
@@ -10,6 +10,8 @@ function Login(props) {
 
     const onFinish = (values) => {        
         navigate('/home');
+        //history 的replace模式
+        // navigate('/home',{ replace: true })
     };
 
     const onFinishFailed = (errorInfo) => {

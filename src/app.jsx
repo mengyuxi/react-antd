@@ -19,6 +19,7 @@ export default function App() {
                     <Routes>
                         <Route path="/"  element={<Login/>}/>
                         <Route path="/home"  element={<Home/>}>
+                            {/* 二级路由 */}
                             <Route index element={<HomeIndex/>}/>
                             {
                                 routerConfig.map(item=>{
