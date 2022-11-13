@@ -1,4 +1,5 @@
 import React, { lazy } from 'react';
+import { UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 
 const Goods = lazy(() =>
     import( /* webpackChunkName: "Goods"*/ 'pages/goods')
@@ -10,12 +11,15 @@ const router = [
     {
         path: '/home/goods',
         component: Goods,
-        name: '关于'
+        name: '关于',
+        icon: <UserOutlined/>
+
     },
     {
         path: '/home/list',
         component: List,
-        name: '列表页'
+        name: '列表页',
+        icon: <VideoCameraOutlined/>
     },
 ]
 

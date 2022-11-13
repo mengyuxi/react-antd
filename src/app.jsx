@@ -13,6 +13,7 @@ export default function App() {
 
     return (
         <ConfigProvider locale={zh_CN}>
+            {/* BrowserRouter 对应history模式  HashRouter对应hash 模式 */}
             <HashRouter>
                 {/* react-router-dom v6 使用“Routes”代替“Switch”  */}
                 <Suspense fallback={<div>loading</div>}>
