@@ -33,13 +33,29 @@ module.exports = {
               }
             },
             {
+                test: /\.css$/i,
+                use: [process.env.ENV_LWD == 'development' ? "style-loader" : MiniCssExtractPlugin.loader, "css-loader"],
+            },
+            {
                 test: /\.less$/i,
                 use: [process.env.ENV_LWD == 'development' ? "style-loader" : MiniCssExtractPlugin.loader, "css-loader", "less-loader"],
             },
             {
                 test: /\.(png|jpg|jpeg|gif)/,        
                 type: 'asset/resource', //发送一个单独的文件并导出 URL。之前通过使用 file-loader 实现。
-            }            
+            },
+            //md文件解析
+            {
+                test: /\.md$/,
+                use: [
+                  {
+                    loader: "html-loader",
+                  },
+                  {
+                    loader: "markdown-loader",
+                  },
+                ],
+            },           
           ]
     },
     plugins:[
