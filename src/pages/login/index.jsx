@@ -1,16 +1,15 @@
-import React, { useState }  from 'react';
+import React from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
-import { useNavigate } from "react-router-dom";
-import routerConfig from 'routerConfig';
+import { useNavigate } from 'react-router-dom';
 
 import './index.less';
 
-function Login(props) {
-    const navigate = useNavigate()
+function Login (props) {
+    const navigate = useNavigate();
 
-    const onFinish = (values) => {        
+    const onFinish = (values) => {
         navigate('/home');
-        //history 的replace模式
+        // history 的replace模式
         // navigate('/home',{ replace: true })
     };
 
@@ -19,8 +18,8 @@ function Login(props) {
     };
 
     return (
-        <div className='login'>
-            <div className='login-content'>
+        <div className="login">
+            <div className="login-content">
                 <div className="title" onClick={onFinish}>
                     webpack5框架搭建测试
                 </div>
@@ -36,7 +35,7 @@ function Login(props) {
                     <Form.Item
                         label="用户名"
                         name="username"
-                        initialValue='admin'
+                        initialValue="admin"
                         rules={[{ required: true, message: 'Please input your username!' }]}
                     >
                         <Input />
@@ -45,7 +44,7 @@ function Login(props) {
                     <Form.Item
                         label="密码"
                         name="password"
-                        initialValue='admin'
+                        initialValue="admin"
                         rules={[{ required: true, message: 'Please input your password!' }]}
                     >
                         <Input.Password />
@@ -65,6 +64,6 @@ function Login(props) {
 
         </div>
 
-    )
+    );
 }
 export default Login;

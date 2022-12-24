@@ -23,14 +23,14 @@ module.exports = {
             routerConfig: path.resolve(__dirname, '../router/')
         },
     },
-    module:{
+    module: {
         rules: [
             {
-              test: /\.(js|jsx)$/,
-              exclude: /(node_modules|bower_components)/,
-              use: {
-                loader: 'babel-loader'
-              }
+                test: /\.(js|jsx)$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader'
+                }
             },
             {
                 test: /\.css$/i,
@@ -40,28 +40,47 @@ module.exports = {
                 test: /\.less$/i,
                 use: [process.env.ENV_LWD == 'development' ? "style-loader" : MiniCssExtractPlugin.loader, "css-loader", "less-loader"],
             },
+            //发送一个单独的文件并导出 URL。之前通过使用 file-loader 实现。
             {
-                test: /\.(png|jpg|jpeg|gif)/,        
-                type: 'asset/resource', //发送一个单独的文件并导出 URL。之前通过使用 file-loader 实现。
+                test: /\.(png|jpg|jpeg|gif)/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'assets/images/[hash][ext][query]'
+                }
+            },
+            // 输出data URI，类似于url-loader
+            {
+                test: /\.(png|jpg|jpeg|gif)/,
+                type: 'asset/inline'
+            },
+            //webpack 将按照默认条件，自动地在 resource 和 inline 之间进行选择：小于 20kb 的文件，将会视为 inline 模块类型，否则会被视为 resource 模块类型。
+            {
+                test: /\.(png|jpg|jpeg|gif)/,
+                type: 'asset', //
+                parser: {
+                    dataUrlCondition: {
+                        maxSize: 20 * 1024 // 20kb
+                    }
+                }
             },
             //md文件解析
             {
                 test: /\.md$/,
                 use: [
-                  {
-                    loader: "html-loader",
-                  },
-                  {
-                    loader: "markdown-loader",
-                  },
+                    {
+                        loader: "html-loader",
+                    },
+                    {
+                        loader: "markdown-loader",
+                    },
                 ],
-            },           
-          ]
+            },
+        ]
     },
-    plugins:[
+    plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: path.join(__dirname, '../src/pages/index.html'), 
+            template: path.join(__dirname, '../src/pages/index.html'),
         }),
         //css抽离
         new MiniCssExtractPlugin({
@@ -70,14 +89,14 @@ module.exports = {
         //静态资源拷贝
         new CopyPlugin({
             patterns: [
-                { 
-                    from: path.resolve(__dirname, '../src/assets'),
-                    to: path.resolve(__dirname, '../dist/assets') 
+                {
+                    from: path.resolve(__dirname, '../src/assets/md'),
+                    to: path.resolve(__dirname, '../dist/assets/md')
                 }
             ],
         }),
     ],
-    optimization:{
-        minimizer: [new TerserPlugin(),new CssMinimizerPlugin()]
+    optimization: {
+        minimizer: [new TerserPlugin(), new CssMinimizerPlugin()]
     }
-}
+};

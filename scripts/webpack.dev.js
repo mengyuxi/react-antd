@@ -3,7 +3,7 @@ const webpackCommonConf = require('./webpack.common.js');
 const { merge } = require('webpack-merge');
 
 //开发环境
-module.exports = merge(webpackCommonConf,{
+module.exports = merge(webpackCommonConf, {
     mode: 'development',
     devServer: {
         static: {

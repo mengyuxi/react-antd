@@ -2,16 +2,16 @@ import React, { lazy } from 'react';
 import { UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 
 const Goods = lazy(() =>
-    import( /* webpackChunkName: "Goods"*/ 'pages/goods')
+    import(/* webpackChunkName: "Goods" */ 'pages/goods')
 );
 const List = lazy(() =>
-    import( /* webpackChunkName: "List"*/ 'pages/list')
+    import(/* webpackChunkName: "List" */ 'pages/list')
 );
 const router = [
     {
         path: '/home/goods',
         component: Goods,
-        name: '关于',
+        name: '商品页',
         icon: <UserOutlined/>
 
     },
@@ -20,7 +20,7 @@ const router = [
         component: List,
         name: '列表页',
         icon: <VideoCameraOutlined/>
-    },
-]
+    }
+];
 
 export default router;
