@@ -3,11 +3,11 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import { ConfigProvider } from 'antd';
 import { Provider } from 'mobx-react';
 import store from './store';
-import zh_CN from 'antd/lib/locale-provider/zh_CN';
-import routerConfig from './router/index';
+import zhCN from 'antd/locale/zh_CN';
+import routerConfig from './router';
 
-import Login from 'pages/login';
-import Home from 'pages/home';
+import Login from '@pages/login';
+import Home from '@pages/home';
 
 import './App.less';
 
@@ -15,7 +15,7 @@ export default function App() {
     const HomeIndex = routerConfig[0]?.component;
 
     return (
-        <ConfigProvider locale={zh_CN}>
+        <ConfigProvider locale={zhCN}>
             <Provider {...store}>
                 {/* BrowserRouter 对应history模式  HashRouter对应hash 模式 */}
                 <HashRouter>

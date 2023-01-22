@@ -15,6 +15,7 @@ module.exports = {
     },
     overrides: [
     ],
+    //指定了 @babel/eslint-parser 作为解析器
     parser: '@babel/eslint-parser',
     parserOptions: {
         ecmaVersion: 'latest',

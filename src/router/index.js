@@ -2,13 +2,13 @@ import React, { lazy } from 'react';
 import { UserOutlined, VideoCameraOutlined, CopyOutlined } from '@ant-design/icons';
 
 const Goods = lazy(() =>
-    import(/* webpackChunkName: "Goods" */ 'pages/goods')
+    import(/* webpackChunkName: "Goods" */ '@pages/goods')
 );
 const List = lazy(() =>
-    import(/* webpackChunkName: "List" */ 'pages/list')
+    import(/* webpackChunkName: "List" */ '@pages/list')
 );
 const Md = lazy(() =>
-    import(/* webpackChunkName: "Md" */ 'pages/md')
+    import(/* webpackChunkName: "Md" */ '@pages/md')
 );
 const router = [
     {

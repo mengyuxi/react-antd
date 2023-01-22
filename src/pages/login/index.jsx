@@ -1,23 +1,16 @@
 import React, { useState } from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
-// import { inject, observer } from 'mobx-react'; //类组件需要引入
 import useRootStore from "../../store";
 
 import './index.less';
 
 
-/*
-* 类组件可以用装饰器引入store,不用important,然后直接使用即可
-*@inject('userStore')
-*@observer
-*/
 function Login (props) {
     const [username, setUserName] = useState("admin");
     const [pwd, setPwd] = useState("123");
 
     const navigate = useNavigate();
-    /*类组件不需要这一步*/
     const { userStore } = useRootStore;
     const onFinish = (values) => {
         /* history 的push模式*/

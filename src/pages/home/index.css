@@ -1,0 +1,23 @@
+.home-main {
+  height: 100vh;
+}
+.home-main .title {
+  font-size: 18px;
+  color: #fff;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+}
+.home-main .user-info {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 50px;
+  height: 100%;
+}
+.home-main .user-info .user-name {
+  color: #ffffff;
+  font-size: 20px;
+}
+.home-main .user-info .user-name span {
+  margin-right: 8px;
+}

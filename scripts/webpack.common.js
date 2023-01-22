@@ -19,9 +19,10 @@ module.exports = {
     resolve: {
         //指定需要检查的扩展名
         extensions: ['.js', '.jsx', '.css', '.less', '.json'],
+        //路径名称简写
         alias: {
-            src: path.resolve(__dirname, '../src/'),
-            pages: path.resolve(__dirname, '../src/pages/')
+            "@src": path.resolve(__dirname, '../src/'),
+            "@pages": path.resolve(__dirname, '../src/pages/')
         },
     },
     module: {
@@ -35,11 +36,11 @@ module.exports = {
             },
             {
                 test: /\.css$/i,
-                use: [process.env.ENV_LWD == 'development' ? "style-loader" : MiniCssExtractPlugin.loader, "css-loader"],
+                use: [process.env.ENV_LWD === 'development' ? "style-loader" : MiniCssExtractPlugin.loader, "css-loader"],
             },
             {
                 test: /\.less$/i,
-                use: [process.env.ENV_LWD == 'development' ? "style-loader" : MiniCssExtractPlugin.loader, "css-loader", "less-loader"],
+                use: [process.env.ENV_LWD === 'development' ? "style-loader" : MiniCssExtractPlugin.loader, "css-loader", "less-loader"],
             },
             //发送一个单独的文件并导出 URL。之前通过使用 file-loader 实现。
             {
@@ -81,7 +82,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: path.join(__dirname, '../src/pages/index.html'),
+            template: path.join(__dirname, '../public/index.html'),
         }),
         //css抽离
         new MiniCssExtractPlugin({

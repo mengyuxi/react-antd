@@ -33,8 +33,9 @@ service.interceptors.response.use(function (response) {
 }, function (error) {
     //报错返回401，一般是token失效，重新登录
     if(error?.response?.status === 401){
+        localStorage.clear();
         sessionStorage.clear();
-        history.push('/login');
+        location.href = "/";
     }
     return Promise.reject(error);
 });

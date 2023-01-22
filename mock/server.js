@@ -28,7 +28,6 @@ app.post('/upload', upload.array(), function (req, res) {
 
 
 app.post('/login', function (req, res) {
-    console.log('res', res.query);
     //post获取参数 req.body
     res.send({
         user: req.body
