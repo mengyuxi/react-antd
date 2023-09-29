@@ -13,6 +13,9 @@ $ npm install
 
 $ npm start
 ```
+## 启动模拟数据
+$ 进入mock文件目录
+$ node server.js
 
 ## 测试部署
 ```
